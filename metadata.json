@@ -1,0 +1,6 @@
+{
+  "name": "Komorebi: Japanese Learning System",
+  "description": "Comprehensive Japanese language learning system featuring two distinct course books: Katsudou (Communicative Activities) and Rikai (Language Competences) across Topics 1–9 and Lessons 1–18, complete with exercise answers, Kana & Kanji stroke trainers, and native audio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

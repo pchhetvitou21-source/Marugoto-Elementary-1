@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-jp {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.font-jp-serif {
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 162, 158, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 162, 158, 0.7);
+}
+
+/* Ruby annotation styles */
+ruby {
+  ruby-align: center;
+}
+ruby rt {
+  font-size: 0.6em;
+  user-select: none;
+  font-weight: 500;
+  line-height: 1;
+}
+
