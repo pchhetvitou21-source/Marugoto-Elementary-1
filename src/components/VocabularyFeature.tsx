@@ -239,15 +239,12 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
                 <BookOpen className="w-3.5 h-3.5 text-amber-700" />
                 まるごと② 初級1 A2 語いリスト
               </span>
-              <span className="text-xs text-amber-800 font-semibold px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200">
-                クメール語 (Khmer OS Siemreap) & 英語
-              </span>
               <span className="text-xs text-stone-500 font-medium hidden sm:inline">
                 Official Japan Foundation Word List
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-bold font-serif text-stone-900 tracking-tight">
-              語いリスト · Vocabulary List (ភាសាខ្មែរ & English)
+              語いリスト · Vocabulary List
             </h1>
           </div>
 

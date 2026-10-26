@@ -10,6 +10,7 @@ import { UnifiedLessonPage } from './components/UnifiedLessonPage';
 import { BookmarksView } from './components/BookmarksView';
 import { KanjiWordFeature } from './components/KanjiWordFeature';
 import { VocabularyFeature } from './components/VocabularyFeature';
+import { AnswerKeyFeature } from './components/AnswerKeyFeature';
 import { useBookmarks } from './utils/bookmarkStorage';
 import { playChime } from './utils/audio';
 import {
@@ -19,7 +20,8 @@ import {
   Layers,
   Sparkles,
   Home,
-  BookText
+  BookText,
+  FileCheck
 } from 'lucide-react';
 
 export default function App() {
@@ -104,25 +106,6 @@ export default function App() {
               >
                 <Home className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Home (本選択)</span>
-              </button>
-
-              {/* Vocab Book shortcut */}
-              <button
-                onClick={() => {
-                  playChime('click');
-                  setSelectedBook('vocab');
-                  setSelectedLessonNumber(0);
-                  setUtilityView('study');
-                }}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold border transition-colors ${
-                  selectedBook === 'vocab' && utilityView === 'study'
-                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs'
-                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
-                }`}
-                title="Marugoto Vocabulary Book (語いリスト)"
-              >
-                <BookText className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">語い (Vocab)</span>
               </button>
 
               {/* Bookmarks */}
@@ -238,8 +221,19 @@ export default function App() {
         {/* VIEW 2: STUDY WORKFLOW */}
         {utilityView === 'study' && (
           <>
-            {/* If Vocab Book is selected -> Render VocabularyFeature */}
-            {selectedBook === 'vocab' ? (
+            {/* If Answer Key is selected -> Render AnswerKeyFeature */}
+            {selectedBook === 'rikai-answers' || selectedBook === 'katsudou-answers' ? (
+              <AnswerKeyFeature
+                bookType={selectedBook}
+                initialLessonNumber={selectedLessonNumber ?? 0}
+                speechRate={speechRate}
+                onBackToHome={handleBackToHome}
+                onSwitchBook={(newBook) => {
+                  setSelectedBook(newBook);
+                  setSelectedLessonNumber(0);
+                }}
+              />
+            ) : selectedBook === 'vocab' ? (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <button
@@ -258,7 +252,7 @@ export default function App() {
                   speechRate={speechRate}
                 />
               </div>
-            ) : selectedBook && selectedLessonNumber ? (
+            ) : selectedBook && (selectedBook === 'rikai' || selectedBook === 'katsudou') && selectedLessonNumber ? (
               /* If Rikai or Katsudou lesson selected -> Render 4-Feature Lesson Page */
               <UnifiedLessonPage
                 book={selectedBook}

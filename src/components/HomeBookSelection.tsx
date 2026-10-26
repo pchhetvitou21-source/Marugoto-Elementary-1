@@ -19,7 +19,12 @@ import {
   FileCheck
 } from 'lucide-react';
 
-export type SelectedBookType = 'rikai' | 'katsudou' | 'vocab';
+export type SelectedBookType =
+  | 'rikai'
+  | 'katsudou'
+  | 'vocab'
+  | 'rikai-answers'
+  | 'katsudou-answers';
 
 interface HomeBookSelectionProps {
   selectedBook: SelectedBookType | null;
@@ -110,9 +115,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 <p className="text-xs text-stone-500 font-mono mt-0.5">
                   初級1 A2 りかい (Pages 21–167)
                 </p>
-                <p className="text-xs text-stone-600 mt-2.5 leading-relaxed">
-                  Focus on sentence patterns, structural grammar drills in Khmer & English, reading comprehension, writing compositions, and official answer keys.
-                </p>
               </div>
 
               {/* Book Highlights */}
@@ -171,9 +173,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 <p className="text-xs text-stone-500 font-mono mt-0.5">
                   初級1 A2 かつどう (Pages 21–177)
                 </p>
-                <p className="text-xs text-stone-600 mt-2.5 leading-relaxed">
-                  Focus on real-world communicative tasks, official Can-do competencies (1–53), natural conversation dialogues with native audio, and official answers.
-                </p>
               </div>
 
               {/* Book Highlights */}
@@ -231,9 +230,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 </h2>
                 <p className="text-xs text-stone-500 font-mono mt-0.5">
                   まるごと② 初級1 A2 語いリスト (30 Pages)
-                </p>
-                <p className="text-xs text-stone-600 mt-2.5 leading-relaxed font-khmer">
-                  តារាងពាក្យផ្លូវការ Japanese (ことば), Part of Speech (品詞), Khmer (クメール語 in <strong>Khmer OS Siemreap</strong>), and English (英語).
                 </p>
               </div>
 
@@ -294,6 +290,190 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 Open Vocabulary List (បើកតារាងពាក្យ)
               </span>
               <div className="w-8 h-8 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white flex items-center justify-center transition-colors shadow-2xs">
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* 4. RIKAI ANSWER KEY CARD */}
+          <div
+            onClick={() => {
+              playChime('click');
+              onSelectBook('rikai-answers');
+            }}
+            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-7 border-2 border-orange-200/90 hover:border-orange-500 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
+          >
+            <div className="space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="w-13 h-13 rounded-2xl bg-orange-50 text-orange-800 border border-orange-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                  <FileCheck className="w-6 h-6 text-orange-700" />
+                </div>
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-950 border border-orange-300">
+                  りかい こたえ · Rikai Answers
+                </span>
+              </div>
+
+              <div>
+                <span className="text-[11px] font-bold text-orange-800 tracking-wider uppercase">
+                  Answers & Audio Scripts · こたえとスクリプト
+                </span>
+                <h2 className="text-2xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-orange-900 transition-colors">
+                  りかい Answer Key
+                </h2>
+                <p className="text-xs text-stone-500 font-mono mt-0.5">
+                  まるごと初級1 A2 りかい (pp. 178–195)
+                </p>
+              </div>
+
+              {/* Lesson Selection Chips */}
+              <div
+                className="pt-2 border-t border-stone-100 space-y-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between text-[11px] font-bold text-stone-700">
+                  <span>Lesson Selection (課の選択):</span>
+                  <button
+                    onClick={() => {
+                      playChime('click');
+                      onSelectLesson('rikai-answers', 0);
+                    }}
+                    className="text-orange-800 hover:underline font-bold"
+                  >
+                    All 1–18 →
+                  </button>
+                </div>
+                <div className="grid grid-cols-6 gap-1.5">
+                  {Array.from({ length: 18 }, (_, i) => i + 1).map((num) => (
+                    <button
+                      key={num}
+                      onClick={() => {
+                        playChime('click');
+                        onSelectLesson('rikai-answers', num);
+                      }}
+                      className="py-1 rounded-lg text-[11px] font-bold bg-stone-100 hover:bg-orange-600 hover:text-white text-stone-800 transition-colors border border-stone-200"
+                      title={`Go to Lesson ${num} Rikai Answers`}
+                    >
+                      L{num}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Highlights */}
+              <div className="space-y-1.5 pt-2 text-xs text-stone-600">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                  <span>Official answer keys for Lessons 1 to 18</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                  <span>Full audio scripts with dialogue speakers</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
+                  <span>Interactive Romaji & English modes</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Action footer button */}
+            <div className="mt-5 pt-4 border-t border-orange-100 flex items-center justify-between">
+              <span className="text-xs font-bold text-orange-950">
+                Open Rikai Answers (解答を開く)
+              </span>
+              <div className="w-8 h-8 rounded-xl bg-orange-600 group-hover:bg-orange-700 text-white flex items-center justify-center transition-colors shadow-2xs">
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* 5. KATSUDOU ANSWER KEY CARD */}
+          <div
+            onClick={() => {
+              playChime('click');
+              onSelectBook('katsudou-answers');
+            }}
+            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-7 border-2 border-indigo-200/90 hover:border-indigo-500 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
+          >
+            <div className="space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="w-13 h-13 rounded-2xl bg-indigo-50 text-indigo-800 border border-indigo-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                  <FileCheck className="w-6 h-6 text-indigo-700" />
+                </div>
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-950 border border-indigo-300">
+                  かつどう こたえ · Katsudou Answers
+                </span>
+              </div>
+
+              <div>
+                <span className="text-[11px] font-bold text-indigo-800 tracking-wider uppercase">
+                  Answers & Audio Scripts · こたえとスクリプト
+                </span>
+                <h2 className="text-2xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-indigo-900 transition-colors">
+                  かつどう Answer Key
+                </h2>
+                <p className="text-xs text-stone-500 font-mono mt-0.5">
+                  まるごと初級1 A2 かつどう (pp. 160–178)
+                </p>
+              </div>
+
+              {/* Lesson Selection Chips */}
+              <div
+                className="pt-2 border-t border-stone-100 space-y-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between text-[11px] font-bold text-stone-700">
+                  <span>Lesson Selection (課の選択):</span>
+                  <button
+                    onClick={() => {
+                      playChime('click');
+                      onSelectLesson('katsudou-answers', 0);
+                    }}
+                    className="text-indigo-800 hover:underline font-bold"
+                  >
+                    All 1–18 →
+                  </button>
+                </div>
+                <div className="grid grid-cols-6 gap-1.5">
+                  {Array.from({ length: 18 }, (_, i) => i + 1).map((num) => (
+                    <button
+                      key={num}
+                      onClick={() => {
+                        playChime('click');
+                        onSelectLesson('katsudou-answers', num);
+                      }}
+                      className="py-1 rounded-lg text-[11px] font-bold bg-stone-100 hover:bg-indigo-600 hover:text-white text-stone-800 transition-colors border border-stone-200"
+                      title={`Go to Lesson ${num} Katsudou Answers`}
+                    >
+                      L{num}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Highlights */}
+              <div className="space-y-1.5 pt-2 text-xs text-stone-600">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                  <span>Activity 1 to 4 solutions & tables</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                  <span>Full audio conversation listening scripts</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                  <span>Interactive Romaji & English modes</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Action footer button */}
+            <div className="mt-5 pt-4 border-t border-indigo-100 flex items-center justify-between">
+              <span className="text-xs font-bold text-indigo-950">
+                Open Katsudou Answers (解答を開く)
+              </span>
+              <div className="w-8 h-8 rounded-xl bg-indigo-600 group-hover:bg-indigo-700 text-white flex items-center justify-center transition-colors shadow-2xs">
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </div>
