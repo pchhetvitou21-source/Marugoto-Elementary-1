@@ -15,8 +15,10 @@ import {
   ArrowRight, 
   ArrowLeft,
   X,
-  Sparkles
+  Sparkles,
+  Bookmark
 } from 'lucide-react';
+import { useBookmarks } from '../utils/bookmarkStorage';
 
 interface KanjiWordFeatureProps {
   currentLessonNumber: number;
@@ -37,6 +39,7 @@ export const KanjiWordFeature: React.FC<KanjiWordFeatureProps> = ({
   const [selectedFilter, setSelectedFilter] = useState<string>(`L${currentLessonNumber}`);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedKanjiForDraw, setSelectedKanjiForDraw] = useState<KanjiWord | null>(null);
+  const { isBookmarked, toggleVocabBookmark } = useBookmarks();
 
   // Flashcard state
   const [flashcardIdx, setFlashcardIdx] = useState(0);
@@ -329,8 +332,32 @@ export const KanjiWordFeature: React.FC<KanjiWordFeatureProps> = ({
                   )}
                 </div>
 
-                {/* Right Actions: Audio + Practice */}
+                {/* Right Actions: Audio + Practice + Bookmark */}
                 <div className="flex flex-col items-center gap-1">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const bookmarkId = `kanji-${word.id}`;
+                      toggleVocabBookmark({
+                        id: bookmarkId,
+                        lessonNumber: word.lessonNumber,
+                        japanese: word.kana,
+                        kanji: word.kanji,
+                        romaji: word.romaji,
+                        english: word.meaning,
+                        partOfSpeech: `Kanji (${word.section})`,
+                        topicTitle: word.topicName,
+                      });
+                    }}
+                    title={isBookmarked(`kanji-${word.id}`) ? 'Remove bookmark' : 'Bookmark this kanji word'}
+                    className={`p-1.5 rounded-lg transition-colors ${
+                      isBookmarked(`kanji-${word.id}`)
+                        ? 'text-amber-600 bg-amber-50 hover:bg-amber-100'
+                        : 'text-stone-400 hover:text-stone-700 hover:bg-stone-100'
+                    }`}
+                  >
+                    <Bookmark className={`w-4 h-4 ${isBookmarked(`kanji-${word.id}`) ? 'fill-amber-600 text-amber-600' : ''}`} />
+                  </button>
                   <button
                     onClick={(e) => handlePlayAudio(e, word.kana)}
                     title="Pronounce word"
@@ -366,6 +393,30 @@ export const KanjiWordFeature: React.FC<KanjiWordFeatureProps> = ({
             {/* Top Info */}
             <div className="flex items-center justify-between text-xs text-stone-500">
               <span className="font-mono">#{currentFlashcard.id} · L{currentFlashcard.lessonNumber}</span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const bookmarkId = `kanji-${currentFlashcard.id}`;
+                  toggleVocabBookmark({
+                    id: bookmarkId,
+                    lessonNumber: currentFlashcard.lessonNumber,
+                    japanese: currentFlashcard.kana,
+                    kanji: currentFlashcard.kanji,
+                    romaji: currentFlashcard.romaji,
+                    english: currentFlashcard.meaning,
+                    partOfSpeech: `Kanji (${currentFlashcard.section})`,
+                    topicTitle: currentFlashcard.topicName,
+                  });
+                }}
+                className={`p-1 rounded-lg transition-colors ${
+                  isBookmarked(`kanji-${currentFlashcard.id}`)
+                    ? 'text-amber-600 bg-amber-50'
+                    : 'text-stone-400 hover:text-stone-700 hover:bg-stone-100'
+                }`}
+                title={isBookmarked(`kanji-${currentFlashcard.id}`) ? 'Remove bookmark' : 'Bookmark this kanji'}
+              >
+                <Bookmark className={`w-4 h-4 ${isBookmarked(`kanji-${currentFlashcard.id}`) ? 'fill-amber-600 text-amber-600' : ''}`} />
+              </button>
               <span className="font-mono">{flashcardIdx + 1} / {filteredWords.length}</span>
             </div>
 

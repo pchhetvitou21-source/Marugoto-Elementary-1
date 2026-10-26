@@ -26,6 +26,10 @@ export interface BookExerciseItem {
   correctAnswer: string;
   explanation?: string;
   userAnswer?: string;
+  sectionTag?: string; // e.g. "もじとことば", "かいわとぶんぽう", "ことばと文化", "どっかい", "さくぶん"
+  subType?: string; // e.g. "ただしい ことばを えらびましょう", "どれが ちがいますか", "日本語でなんですか", "聞いて 書きましょう", "漢字を 読みましょう", "ぎもんしと じょし"
+  isOfficial?: boolean; // true = Official Answer from textbook, false = Sample Answer
+  audioText?: string;
 }
 
 export interface VocabularyPart {
@@ -91,6 +95,17 @@ export interface WritingPart {
   sampleAnswer: string;
 }
 
+export interface CulturePart {
+  title: string;
+  topic: string;
+  culturalNotes: {
+    japanese: string;
+    romaji: string;
+    english: string;
+  }[];
+  exercises: BookExerciseItem[];
+}
+
 export interface BookLesson {
   lessonNumber: number;
   topicNumber: number;
@@ -101,6 +116,7 @@ export interface BookLesson {
   vocabulary: VocabularyPart;
   grammar: GrammarPart;
   listening: ListeningPart;
+  culture?: CulturePart;
   reading: ReadingPart;
   writing: WritingPart;
 }
