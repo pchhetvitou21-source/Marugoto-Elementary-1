@@ -1,6 +1,6 @@
 {
   "name": "Komorebi: Japanese Learning System",
-  "description": "Comprehensive Japanese language learning system featuring two distinct course book features: かつどう (Communicative Activities, Lessons 1–18, Can-dos pp. 151–159, Answer Keys pp. 160–177) and りかい (Language Competences, Lessons 1–18, Vocabulary, Grammar, Reading, Writing & Answers), alongside official Vocabulary lists (Japanese, Kanji, English).",
+  "description": "Comprehensive Japanese language learning system featuring Marugoto A2-1 Rikai (りかい), Katsudou (かつどう), and official 語いリスト (Vocabulary Book) with Khmer OS Siemreap translations, Lessons 1–18, Can-dos, Grammar, and exercises.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

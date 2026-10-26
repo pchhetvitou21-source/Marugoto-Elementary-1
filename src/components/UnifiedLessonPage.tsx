@@ -38,6 +38,7 @@ import {
   PenTool
 } from 'lucide-react';
 import { SelectedBookType } from './HomeBookSelection';
+import { VocabularyFeature } from './VocabularyFeature';
 
 export type LessonFeatureTab = 'grammar' | 'vocabulary' | 'cando' | 'exercises';
 
@@ -646,110 +647,11 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
       )}
 
       {/* =========================================================================
-          FEATURE 2: VOCABULARY (語い・ことば)
+          FEATURE 2: VOCABULARY (語い・ことば - With Khmer OS Siemreap & Book Reference)
       ========================================================================= */}
       {activeTab === 'vocabulary' && (
         <div className="space-y-6">
-          <div className="bg-white rounded-3xl p-6 border border-stone-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-emerald-100 text-emerald-900 font-mono">
-                  Vocabulary · 語い
-                </span>
-                <span className="text-xs text-stone-500 font-mono">
-                  {currentRikaiLesson.vocabulary.keyWords.length} Target Words
-                </span>
-              </div>
-              <h3 className="text-xl font-bold font-serif text-stone-900 mt-1 font-jp">
-                ことばと文字 (Words & Letters · 第{lessonNumber}課)
-              </h3>
-              <p className="text-xs text-stone-500">
-                Click any vocabulary item to hear audio pronunciation, toggle romaji, or bookmark for review.
-              </p>
-            </div>
-
-            <button
-              onClick={() => {
-                playChime('click');
-                const wordsText = currentRikaiLesson.vocabulary.keyWords
-                  .slice(0, 8)
-                  .map((w) => w.word)
-                  .join('。 ');
-                playJapaneseSpeech(wordsText, speechRate);
-              }}
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 rounded-xl text-xs font-bold border border-emerald-200 self-start sm:self-auto transition-colors"
-            >
-              <Volume2 className="w-4 h-4" />
-              <span>Pronounce First 8 Words</span>
-            </button>
-          </div>
-
-          {/* Word Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {currentRikaiLesson.vocabulary.keyWords.map((kw, idx) => {
-              const kwId = `vocab-l${lessonNumber}-${idx}`;
-              const isKwBookmarked = isBookmarked(kwId);
-
-              return (
-                <div
-                  key={idx}
-                  className="p-4 rounded-2xl bg-white border border-stone-200 hover:border-emerald-300 hover:bg-emerald-50/20 transition-all flex items-start justify-between gap-3 shadow-2xs"
-                >
-                  <div className="space-y-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg font-bold font-jp text-stone-900 tracking-tight">
-                        {kw.word}
-                      </span>
-                      {kw.category && (
-                        <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
-                          {kw.category}
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-xs font-jp text-stone-600">{kw.kana}</div>
-                    {showRomaji && <div className="text-xs font-mono text-stone-400">{kw.romaji}</div>}
-                    <div className="text-xs font-medium text-stone-700">{kw.meaning}</div>
-                  </div>
-
-                  <div className="flex items-center gap-1 shrink-0">
-                    <button
-                      onClick={() =>
-                        toggleVocabBookmark({
-                          id: kwId,
-                          lessonNumber,
-                          japanese: kw.kana || kw.word,
-                          kanji: kw.word !== kw.kana ? kw.word : '—',
-                          romaji: kw.romaji,
-                          english: kw.meaning,
-                          partOfSpeech: kw.category || 'Vocab',
-                          lessonTitle: currentLesson.title,
-                          topicTitle: currentChapter.title,
-                        })
-                      }
-                      className={`p-2 rounded-xl transition-colors ${
-                        isKwBookmarked
-                          ? 'text-amber-600 bg-amber-50'
-                          : 'text-stone-400 hover:text-stone-700 hover:bg-stone-100'
-                      }`}
-                      title={isKwBookmarked ? 'Remove bookmark' : 'Bookmark word'}
-                    >
-                      <Bookmark className={`w-4 h-4 ${isKwBookmarked ? 'fill-amber-600' : ''}`} />
-                    </button>
-                    <button
-                      onClick={() => {
-                        playChime('click');
-                        playJapaneseSpeech(kw.kana || kw.word, speechRate);
-                      }}
-                      className="p-2 text-stone-400 hover:text-emerald-700 hover:bg-emerald-50 rounded-xl transition-colors"
-                      title="Pronounce word"
-                    >
-                      <Volume2 className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <VocabularyFeature initialLessonNumber={lessonNumber} speechRate={speechRate} />
         </div>
       )}
 

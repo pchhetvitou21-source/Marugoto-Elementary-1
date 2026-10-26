@@ -19,7 +19,7 @@ import {
   FileCheck
 } from 'lucide-react';
 
-export type SelectedBookType = 'rikai' | 'katsudou';
+export type SelectedBookType = 'rikai' | 'katsudou' | 'vocab';
 
 interface HomeBookSelectionProps {
   selectedBook: SelectedBookType | null;
@@ -81,19 +81,19 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
         </div>
 
         {/* The Two Main Book Selection Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* 1. RIKAI BOOK CARD */}
           <div
             onClick={() => {
               playChime('click');
               onSelectBook('rikai');
             }}
-            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-8 border-2 border-amber-200/80 hover:border-amber-500 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
+            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-7 border-2 border-amber-200/80 hover:border-amber-500 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
           >
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div className="flex items-start justify-between gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                  <BookOpen className="w-7 h-7 text-amber-700" />
+                <div className="w-13 h-13 rounded-2xl bg-amber-50 text-amber-800 border border-amber-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                  <BookOpen className="w-6 h-6 text-amber-700" />
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
                   りかい · Rikai
@@ -101,17 +101,17 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
               </div>
 
               <div>
-                <span className="text-xs font-bold text-amber-800 tracking-wider uppercase">
+                <span className="text-[11px] font-bold text-amber-800 tracking-wider uppercase">
                   Language Competences · 言語知識編
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-amber-900 transition-colors">
+                <h2 className="text-2xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-amber-900 transition-colors">
                   りかい Rikai Book
                 </h2>
                 <p className="text-xs text-stone-500 font-mono mt-0.5">
-                  まるごと 日本のことばと文化 初級1 A2 りかい
+                  初級1 A2 りかい (Pages 21–167)
                 </p>
-                <p className="text-xs sm:text-sm text-stone-600 mt-3 leading-relaxed">
-                  Focus on sentence patterns, structural grammar drills, classified vocabulary, reading comprehension (emails, blogs), writing compositions, and complete official answer keys.
+                <p className="text-xs text-stone-600 mt-2.5 leading-relaxed">
+                  Focus on sentence patterns, structural grammar drills in Khmer & English, reading comprehension, writing compositions, and official answer keys.
                 </p>
               </div>
 
@@ -123,25 +123,21 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Grammar Explained in Khmer & English</strong> with rules & conjugations</span>
+                  <span><strong>Grammar Explained in Khmer & English</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Reading passages & Guided writing with model essays</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Official answer keys with 「答えを見る」 toggle buttons</span>
+                  <span>Official answer keys with toggle buttons</span>
                 </div>
               </div>
             </div>
 
             {/* Action footer button */}
-            <div className="mt-6 pt-4 border-t border-amber-100 flex items-center justify-between">
+            <div className="mt-5 pt-4 border-t border-amber-100 flex items-center justify-between">
               <span className="text-xs font-bold text-amber-900">
-                Open Chapters & Lessons (目次を開く)
+                Open Lessons (目次を開く)
               </span>
-              <div className="w-9 h-9 rounded-xl bg-amber-600 group-hover:bg-amber-700 text-white flex items-center justify-center transition-colors shadow-2xs">
+              <div className="w-8 h-8 rounded-xl bg-amber-600 group-hover:bg-amber-700 text-white flex items-center justify-center transition-colors shadow-2xs">
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </div>
@@ -153,12 +149,12 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
               playChime('click');
               onSelectBook('katsudou');
             }}
-            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-8 border-2 border-blue-200/80 hover:border-blue-500 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
+            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-7 border-2 border-blue-200/80 hover:border-blue-500 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
           >
-            <div className="space-y-5">
+            <div className="space-y-4">
               <div className="flex items-start justify-between gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-800 border border-blue-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
-                  <Layers className="w-7 h-7 text-blue-700" />
+                <div className="w-13 h-13 rounded-2xl bg-blue-50 text-blue-800 border border-blue-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                  <Layers className="w-6 h-6 text-blue-700" />
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-900 border border-blue-300">
                   かつどう · Katsudou
@@ -166,17 +162,17 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
               </div>
 
               <div>
-                <span className="text-xs font-bold text-blue-800 tracking-wider uppercase">
+                <span className="text-[11px] font-bold text-blue-800 tracking-wider uppercase">
                   Communicative Activities · 言語活動編
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-blue-900 transition-colors">
+                <h2 className="text-2xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-blue-900 transition-colors">
                   かつどう Katsudou Book
                 </h2>
                 <p className="text-xs text-stone-500 font-mono mt-0.5">
-                  まるごと 日本のことばと文化 初級1 A2 かつどう
+                  初級1 A2 かつどう (Pages 21–177)
                 </p>
-                <p className="text-xs sm:text-sm text-stone-600 mt-3 leading-relaxed">
-                  Focus on real-world communicative tasks, official Can-do competencies (1–53), natural conversation dialogues with audio, situational role-plays, and official answer keys (pp. 160–177).
+                <p className="text-xs text-stone-600 mt-2.5 leading-relaxed">
+                  Focus on real-world communicative tasks, official Can-do competencies (1–53), natural conversation dialogues with native audio, and official answers.
                 </p>
               </div>
 
@@ -188,25 +184,116 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Official Can-dos (1–53)</strong> with native audio dialogues</span>
+                  <span><strong>Official Can-dos (1–53)</strong> with audio speech</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Authentic sections & audio tracks from the book</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Official answer keys with 「答えを見る」 toggle buttons</span>
+                  <span>Answer keys (pp. 160–177) with explanations</span>
                 </div>
               </div>
             </div>
 
             {/* Action footer button */}
-            <div className="mt-6 pt-4 border-t border-blue-100 flex items-center justify-between">
+            <div className="mt-5 pt-4 border-t border-blue-100 flex items-center justify-between">
               <span className="text-xs font-bold text-blue-900">
-                Open Chapters & Lessons (目次を開く)
+                Open Lessons (目次を開く)
               </span>
-              <div className="w-9 h-9 rounded-xl bg-blue-600 group-hover:bg-blue-700 text-white flex items-center justify-center transition-colors shadow-2xs">
+              <div className="w-8 h-8 rounded-xl bg-blue-600 group-hover:bg-blue-700 text-white flex items-center justify-center transition-colors shadow-2xs">
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* 3. VOCABULARY BOOK CARD (まるごと 語いリスト · ភាសាខ្មែរ & English) */}
+          <div
+            onClick={() => {
+              playChime('click');
+              onSelectBook('vocab');
+            }}
+            className="group cursor-pointer bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-300 hover:border-emerald-600 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
+          >
+            <div className="space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+                  <BookText className="w-6 h-6 text-emerald-700" />
+                </div>
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-950 border border-emerald-300">
+                  語い · Vocab
+                </span>
+              </div>
+
+              <div>
+                <span className="text-[11px] font-bold text-emerald-800 tracking-wider uppercase">
+                  Official Word List · 語いリスト
+                </span>
+                <h2 className="text-2xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-emerald-900 transition-colors">
+                  語いリスト Vocabulary
+                </h2>
+                <p className="text-xs text-stone-500 font-mono mt-0.5">
+                  まるごと② 初級1 A2 語いリスト (30 Pages)
+                </p>
+                <p className="text-xs text-stone-600 mt-2.5 leading-relaxed font-khmer">
+                  តារាងពាក្យផ្លូវការ Japanese (ことば), Part of Speech (品詞), Khmer (クメール語 in <strong>Khmer OS Siemreap</strong>), and English (英語).
+                </p>
+              </div>
+
+              {/* Lesson Selection Chips inside the Card */}
+              <div
+                className="pt-2 border-t border-stone-100 space-y-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between text-[11px] font-bold text-stone-700">
+                  <span>Lesson Selection (ជ្រើសរើសមេរៀន):</span>
+                  <button
+                    onClick={() => {
+                      playChime('click');
+                      onSelectLesson('vocab', 0);
+                    }}
+                    className="text-emerald-800 hover:underline font-bold"
+                  >
+                    All 1–18 →
+                  </button>
+                </div>
+                <div className="grid grid-cols-6 gap-1.5">
+                  {Array.from({ length: 18 }, (_, i) => i + 1).map((num) => (
+                    <button
+                      key={num}
+                      onClick={() => {
+                        playChime('click');
+                        onSelectLesson('vocab', num);
+                      }}
+                      className="py-1 rounded-lg text-[11px] font-bold bg-stone-100 hover:bg-emerald-600 hover:text-white text-stone-800 transition-colors border border-stone-200"
+                      title={`Go to Lesson ${num} Vocabulary`}
+                    >
+                      L{num}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Vocabulary Highlights */}
+              <div className="space-y-1.5 pt-2 text-xs text-stone-600">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>655+ words across Lessons 1 to 18</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span className="font-khmer">Khmer font: <strong>Khmer OS Siemreap</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Native audio speech & flashcards</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Action footer button */}
+            <div className="mt-5 pt-4 border-t border-emerald-100 flex items-center justify-between">
+              <span className="text-xs font-bold text-emerald-950 font-khmer">
+                Open Vocabulary List (បើកតារាងពាក្យ)
+              </span>
+              <div className="w-8 h-8 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white flex items-center justify-center transition-colors shadow-2xs">
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </div>

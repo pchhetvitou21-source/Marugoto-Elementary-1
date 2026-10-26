@@ -2,8 +2,15 @@
 
 @layer base {
   body {
-    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', system-ui, -apple-system, sans-serif;
   }
+}
+
+.font-khmer,
+.font-km,
+.khmer-font,
+[lang="km"] {
+  font-family: 'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', sans-serif !important;
 }
 
 .font-jp {

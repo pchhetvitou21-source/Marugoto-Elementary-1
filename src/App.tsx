@@ -9,6 +9,7 @@ import { HomeBookSelection, SelectedBookType } from './components/HomeBookSelect
 import { UnifiedLessonPage } from './components/UnifiedLessonPage';
 import { BookmarksView } from './components/BookmarksView';
 import { KanjiWordFeature } from './components/KanjiWordFeature';
+import { VocabularyFeature } from './components/VocabularyFeature';
 import { useBookmarks } from './utils/bookmarkStorage';
 import { playChime } from './utils/audio';
 import {
@@ -103,6 +104,25 @@ export default function App() {
               >
                 <Home className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Home (本選択)</span>
+              </button>
+
+              {/* Vocab Book shortcut */}
+              <button
+                onClick={() => {
+                  playChime('click');
+                  setSelectedBook('vocab');
+                  setSelectedLessonNumber(0);
+                  setUtilityView('study');
+                }}
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold border transition-colors ${
+                  selectedBook === 'vocab' && utilityView === 'study'
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs'
+                    : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100'
+                }`}
+                title="Marugoto Vocabulary Book (語いリスト)"
+              >
+                <BookText className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">語い (Vocab)</span>
               </button>
 
               {/* Bookmarks */}
@@ -218,8 +238,28 @@ export default function App() {
         {/* VIEW 2: STUDY WORKFLOW */}
         {utilityView === 'study' && (
           <>
-            {/* If a lesson is selected -> Render 4-Feature Lesson Page */}
-            {selectedBook && selectedLessonNumber ? (
+            {/* If Vocab Book is selected -> Render VocabularyFeature */}
+            {selectedBook === 'vocab' ? (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={handleBackToHome}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-stone-600 hover:text-stone-900 bg-white border border-stone-200 rounded-xl transition-colors shadow-2xs"
+                  >
+                    <Home className="w-3.5 h-3.5 text-stone-400" />
+                    <span>← Back to Book Selection (ホーム)</span>
+                  </button>
+                  <span className="text-xs text-stone-500 font-mono">
+                    Marugoto A2-1 語いリスト (Vocab Book)
+                  </span>
+                </div>
+                <VocabularyFeature
+                  initialLessonNumber={selectedLessonNumber ?? 0}
+                  speechRate={speechRate}
+                />
+              </div>
+            ) : selectedBook && selectedLessonNumber ? (
+              /* If Rikai or Katsudou lesson selected -> Render 4-Feature Lesson Page */
               <UnifiedLessonPage
                 book={selectedBook}
                 lessonNumber={selectedLessonNumber}
