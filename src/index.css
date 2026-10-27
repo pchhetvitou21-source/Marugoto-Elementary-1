@@ -1,16 +1,106 @@
 @import "tailwindcss";
 
+/* Khmer OS Siemreap / Siemreap Web & Local System Font Definitions */
+@font-face {
+  font-family: 'Khmer OS Siemreap';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Khmer OS Siemreap'),
+       local('Khmer OS Siem Reap'),
+       local('KhmerOSsiemreap'),
+       local('KhmerOS Siemreap'),
+       local('Siemreap'),
+       url('https://fonts.gstatic.com/s/siemreap/v30/Gg82N5oFbgLvHAfNl1YXlg4.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+@font-face {
+  font-family: 'Khmer OS Siemreap';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Khmer OS Siemreap Bold'),
+       local('Khmer OS Siem Reap Bold'),
+       local('KhmerOSsiemreap-Bold'),
+       local('KhmerOS Siemreap Bold'),
+       local('Khmer OS Siemreap'),
+       local('Siemreap'),
+       url('https://fonts.gstatic.com/s/siemreap/v30/Gg82N5oFbgLvHAfNl1YXlg4.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+@font-face {
+  font-family: 'Khmer OS Siem Reap';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Khmer OS Siem Reap'),
+       local('Khmer OS Siemreap'),
+       local('KhmerOSsiemreap'),
+       local('Siemreap'),
+       url('https://fonts.gstatic.com/s/siemreap/v30/Gg82N5oFbgLvHAfNl1YXlg4.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+@font-face {
+  font-family: 'Khmer OS Siem Reap';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Khmer OS Siem Reap Bold'),
+       local('Khmer OS Siemreap Bold'),
+       local('KhmerOSsiemreap-Bold'),
+       local('Siemreap'),
+       url('https://fonts.gstatic.com/s/siemreap/v30/Gg82N5oFbgLvHAfNl1YXlg4.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+/* Unicode-range fallback: Ensure any Khmer glyphs in primary font stacks render with Khmer OS Siemreap */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  src: local('Khmer OS Siemreap'),
+       local('Khmer OS Siem Reap'),
+       local('KhmerOSsiemreap'),
+       local('Siemreap'),
+       url('https://fonts.gstatic.com/s/siemreap/v30/Gg82N5oFbgLvHAfNl1YXlg4.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400 700;
+  src: local('Khmer OS Siemreap'),
+       local('Khmer OS Siem Reap'),
+       local('KhmerOSsiemreap'),
+       local('Siemreap'),
+       url('https://fonts.gstatic.com/s/siemreap/v30/Gg82N5oFbgLvHAfNl1YXlg4.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+1780-17FF, U+19E0-19FF, U+200C-200D, U+25CC;
+}
+
 @layer base {
-  body {
-    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', system-ui, -apple-system, sans-serif;
+  body,
+  button,
+  input,
+  select,
+  textarea,
+  table {
+    font-family: 'Plus Jakarta Sans', 'Khmer OS Siemreap', 'Khmer OS Siem Reap', 'KhmerOSsiemreap', 'Siemreap', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
   }
 }
 
 .font-khmer,
 .font-km,
 .khmer-font,
+:lang(km),
 [lang="km"] {
-  font-family: 'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', sans-serif !important;
+  font-family: 'Khmer OS Siemreap', 'Khmer OS Siem Reap', 'KhmerOSsiemreap', 'Siemreap', sans-serif !important;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 .font-jp {

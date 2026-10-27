@@ -409,7 +409,7 @@ export const VOCABULARY_LESSONS: LessonVocabularyGroup[] = [
       { id: 'l9-22', lessonNumber: 9, japanese: 'ちがいます', kanji: '違います', khmer: 'ខុស', english: 'to differ, to be different', partOfSpeech: 'V', romaji: 'chigaimasu' },
       { id: 'l9-23', lessonNumber: 9, japanese: 'ちゃわん', kanji: '茶わん', khmer: 'ចានបាយ', english: 'rice bowl', partOfSpeech: 'N', romaji: 'chawan' },
       { id: 'l9-24', lessonNumber: 9, japanese: 'ちゅうがっこう', kanji: '中学校', khmer: 'អនុវិទ្យាល័យ', english: 'secondary school, junior high school', partOfSpeech: 'N', romaji: 'chuugakkou' },
-      { id: 'l9-25', lessonNumber: 9, japanese: 'テスト', kanji: '—', khmer: 'ការប្រលង, តេស្ត', english: 'test', partOfSpeech: 'N', romaji: 'tesuto' },
+      { id: 'l9-25', lessonNumber: 9, japanese: 'テスト', kanji: '—', khmer: 'ការប្រឡង', english: 'test', partOfSpeech: 'N', romaji: 'tesuto' },
       { id: 'l9-26', lessonNumber: 9, japanese: 'てつだいます', kanji: '手伝います', khmer: 'ជួយ', english: 'to help', partOfSpeech: 'V', romaji: 'tetsudaimasu' },
       { id: 'l9-27', lessonNumber: 9, japanese: 'にます', kanji: '似ます', khmer: 'ស្រដៀង', english: 'to be similar, to be look like', partOfSpeech: 'V', romaji: 'nimasu' },
       { id: 'l9-28', lessonNumber: 9, japanese: 'はつおん', kanji: '発音', khmer: 'ការបញ្ចេញសំឡេង', english: 'pronunciation', partOfSpeech: 'N', romaji: 'hatsuon' },

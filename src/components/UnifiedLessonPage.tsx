@@ -328,10 +328,7 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
           }`}
         >
           <Sparkles className={`w-4 h-4 ${activeTab === 'grammar' ? 'text-amber-200' : 'text-amber-600'}`} />
-          <div className="text-left">
-            <span className="block leading-tight">1. Grammar</span>
-            <span className="text-[10px] opacity-80 font-normal font-sans block">Explain the Detail (文法 · ខ្មែរ)</span>
-          </div>
+          <span className="block leading-tight">1. Grammar</span>
         </button>
 
         {/* Feature 2: Vocabulary */}
@@ -347,10 +344,7 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
           }`}
         >
           <BookText className={`w-4 h-4 ${activeTab === 'vocabulary' ? 'text-emerald-200' : 'text-emerald-600'}`} />
-          <div className="text-left">
-            <span className="block leading-tight">2. Vocabulary</span>
-            <span className="text-[10px] opacity-80 font-normal font-sans block">Words & Letters (語い)</span>
-          </div>
+          <span className="block leading-tight">2. Vocabulary</span>
         </button>
 
         {/* Feature 3: Can-do */}
@@ -366,10 +360,7 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
           }`}
         >
           <Award className={`w-4 h-4 ${activeTab === 'cando' ? 'text-blue-200' : 'text-blue-600'}`} />
-          <div className="text-left">
-            <span className="block leading-tight">3. Can-do</span>
-            <span className="text-[10px] opacity-80 font-normal font-sans block">Objectives & Dialogues (会話)</span>
-          </div>
+          <span className="block leading-tight">3. Can-do</span>
         </button>
 
         {/* Feature 4: Exercises */}
@@ -385,10 +376,7 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
           }`}
         >
           <FileCheck className={`w-4 h-4 ${activeTab === 'exercises' ? 'text-rose-200' : 'text-rose-600'}`} />
-          <div className="text-left">
-            <span className="block leading-tight">4. Exercises</span>
-            <span className="text-[10px] opacity-80 font-normal font-sans block">Textbook Tasks & Keys (練習)</span>
-          </div>
+          <span className="block leading-tight">4. Exercises</span>
         </button>
       </div>
 
@@ -402,18 +390,15 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-amber-100 text-amber-900 font-mono">
-                  Grammar Explanation · ពន្យល់វេយ្យាករណ៍
+                  Grammar · 文法
                 </span>
                 <span className="text-xs text-stone-500 font-jp">
-                  {currentGrammar.lessonTitleJp} · {currentGrammar.lessonTitleKm}
+                  {currentGrammar.lessonTitleJp} · <span className="font-khmer font-normal">{currentGrammar.lessonTitleKm}</span>
                 </span>
               </div>
               <h3 className="text-xl font-bold font-serif text-stone-900 mt-1">
                 文法解説 (Detailed Grammar Analysis · 第{lessonNumber}課)
               </h3>
-              <p className="text-xs text-stone-500">
-                Detailed sentence patterns, rules, conjugation tables, particles, and Khmer explanations.
-              </p>
             </div>
 
             {/* Language filter for explanations */}
@@ -521,14 +506,20 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
 
                     {(grammarLang === 'both' || grammarLang === 'khmer') && (
                       <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2">
-                        <span className="text-[11px] font-bold text-amber-900 uppercase tracking-wider flex items-center gap-1">
+                        <span className="text-[11px] font-bold text-amber-900 uppercase tracking-wider flex items-center gap-1 font-khmer">
                           🇰🇭 ការពន្យល់ជាភាសាខ្មែរ (Khmer Detail)
                         </span>
-                        <p className="text-xs sm:text-sm text-stone-800 leading-relaxed font-sans font-medium">
+                        <p
+                          className="text-xs sm:text-sm text-stone-800 leading-relaxed font-khmer font-medium"
+                          style={{ fontFamily: "'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', sans-serif" }}
+                        >
                           {gp.khmerExplanation}
                         </p>
                         {gp.formationRulesKm && (
-                          <div className="pt-2 border-t border-amber-200 text-xs text-amber-950 space-y-1">
+                          <div
+                            className="pt-2 border-t border-amber-200 text-xs text-amber-950 space-y-1 font-khmer"
+                            style={{ fontFamily: "'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', sans-serif" }}
+                          >
                             <span className="font-bold">ទម្រង់បង្កើតកិរិយាស័ព្ទ / នាម:</span>
                             <ul className="list-disc list-inside space-y-0.5">
                               {gp.formationRulesKm.map((r, rIdx) => (
@@ -561,7 +552,7 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
                           <tbody className="divide-y divide-stone-100 bg-white">
                             {gp.conjugationTable.map((row, rIdx) => (
                               <tr key={rIdx} className="hover:bg-amber-50/40">
-                                <td className="px-3 py-2 font-semibold text-stone-900">
+                                <td className="px-3 py-2 font-semibold text-stone-900 font-khmer">
                                   {row.formName} ({row.khmerFormName})
                                 </td>
                                 <td className="px-3 py-2 font-jp font-bold text-amber-950">
@@ -569,7 +560,12 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
                                 </td>
                                 <td className="px-3 py-2 font-mono text-stone-500">{row.romaji}</td>
                                 <td className="px-3 py-2 text-stone-600">{row.english}</td>
-                                <td className="px-3 py-2 text-amber-900 font-medium">{row.khmer}</td>
+                                <td
+                                  className="px-3 py-2 text-amber-900 font-medium font-khmer"
+                                  style={{ fontFamily: "'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', sans-serif" }}
+                                >
+                                  {row.khmer}
+                                </td>
                               </tr>
                             ))}
                           </tbody>
@@ -599,7 +595,10 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
                             {showTranslation && (
                               <div className="text-xs text-stone-600 italic">{ex.english}</div>
                             )}
-                            <div className="text-xs text-amber-900 font-medium pt-0.5">
+                            <div
+                              className="text-xs text-amber-900 font-medium pt-0.5 font-khmer leading-relaxed"
+                              style={{ fontFamily: "'Khmer OS Siemreap', 'Siemreap', 'Noto Sans Khmer', sans-serif" }}
+                            >
                               🇰🇭 {ex.khmer}
                             </div>
                           </div>
@@ -673,9 +672,6 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
               <h3 className="text-xl font-bold font-serif text-stone-900 mt-1 font-jp">
                 会話とキャンドゥ (Authentic Communication · 第{lessonNumber}課)
               </h3>
-              <p className="text-xs text-stone-500">
-                Official CEFR/JF Standard Can-do goals with natural dialogue lines, audio speech, and self-checks.
-              </p>
             </div>
           </div>
 
@@ -803,9 +799,6 @@ export const UnifiedLessonPage: React.FC<UnifiedLessonPageProps> = ({
               <h3 className="text-xl font-bold font-serif text-stone-900 mt-1 font-jp">
                 教科書練習問題 & 解答 (Book Exercises & Answer Keys)
               </h3>
-              <p className="text-xs text-stone-500">
-                Exercises extracted directly from the {isRikai ? 'Rikai' : 'Katsudou'} textbook with answer toggles.
-              </p>
             </div>
 
             <button

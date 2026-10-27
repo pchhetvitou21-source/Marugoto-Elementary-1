@@ -383,7 +383,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
             }`}
           >
             <List className="w-3.5 h-3.5 text-amber-700" />
-            Table List (តារាងពាក្យ)
+            Table List
           </button>
           <button
             onClick={() => setViewMode('cards')}
@@ -394,7 +394,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
             }`}
           >
             <Layers className="w-3.5 h-3.5 text-blue-700" />
-            Cards Grid (កាតពាក្យ)
+            Cards Grid
           </button>
           <button
             onClick={() => setViewMode('flashcards')}
@@ -405,7 +405,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
             }`}
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            Flashcards (ហាត់ទន្ទេញ)
+            Flashcards
           </button>
           <button
             onClick={() => setViewMode('quiz')}
@@ -416,7 +416,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
             }`}
           >
             <GraduationCap className="w-3.5 h-3.5 text-emerald-700" />
-            Practice Quiz (តេស្ត)
+            Practice Quiz
           </button>
         </div>
 
@@ -507,9 +507,6 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
                 [N = Noun, V = Verb, Adv = Adverb, いAdj = い Adjective, なAdj = な Adjective, Conj = Conjunction]
               </span>
             </div>
-            <div className="text-[11px] text-stone-300 font-khmer">
-              ពុម្ពអក្សរខ្មែរ: Khmer OS Siemreap
-            </div>
           </div>
 
           <div className="overflow-x-auto">
@@ -525,7 +522,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
                     品詞 <span className="text-[11px] font-normal text-stone-500">(POS)</span>
                   </th>
                   <th className="py-3.5 px-4 min-w-[220px]">
-                    クメール語 <span className="text-[11px] font-normal text-amber-800 font-khmer">(ភាសាខ្មែរ · Khmer OS Siemreap)</span>
+                    クメール語 <span className="text-[11px] font-normal text-stone-500">(Khmer)</span>
                   </th>
                   <th className="py-3.5 px-4 min-w-[220px]">
                     英語 <span className="text-[11px] font-normal text-stone-500">(English)</span>
@@ -752,7 +749,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
                     {/* クメール語 (Khmer Translation in Khmer OS Siemreap) */}
                     <div className="mb-3 p-2.5 rounded-xl bg-stone-50 border border-stone-200">
                       <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block mb-0.5">
-                        クメール語 (Khmer OS Siemreap):
+                        クメール語 (Khmer):
                       </span>
                       <p
                         className="text-base font-normal text-stone-900 font-khmer leading-relaxed"
@@ -847,7 +844,7 @@ export const VocabularyFeature: React.FC<VocabularyFeatureProps> = ({
                   <div className="space-y-4">
                     <div className="p-3 bg-amber-50/80 rounded-2xl border border-amber-200">
                       <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block mb-1">
-                        クメール語 (Khmer OS Siemreap)
+                        クメール語 (Khmer)
                       </span>
                       <h4
                         className="text-2xl font-bold text-amber-950 font-khmer leading-relaxed"

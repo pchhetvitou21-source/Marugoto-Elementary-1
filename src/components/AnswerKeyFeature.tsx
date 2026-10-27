@@ -156,10 +156,6 @@ export const AnswerKeyFeature: React.FC<AnswerKeyFeatureProps> = ({
                 ? 'りかい こたえとスクリプト · Rikai Answer Key'
                 : 'かつどう こたえとスクリプト · Katsudou Answer Key'}
             </h1>
-
-            <p className="text-xs sm:text-sm text-stone-300 max-w-2xl leading-relaxed">
-              Official answer keys and full audio scripts from the textbook. Includes comprehensive <strong>Romaji transliteration</strong> and <strong>English translations</strong> for all exercise answers and dialogue lines.
-            </p>
           </div>
 
           {/* Mode Toggles: Romaji & English */}

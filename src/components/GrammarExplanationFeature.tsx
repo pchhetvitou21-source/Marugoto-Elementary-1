@@ -310,11 +310,11 @@ export const GrammarExplanationFeature: React.FC<GrammarExplanationFeatureProps>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Khmer Explanation Box */}
             <div className="p-5 rounded-2xl bg-[#faf6ee] border border-amber-200/80 space-y-2">
-              <div className="flex items-center gap-2 text-amber-900 font-bold text-xs uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-amber-900 font-bold text-xs uppercase tracking-wider font-khmer">
                 <Sparkles className="w-4 h-4 text-amber-600" />
                 <span>ការពន្យល់ជាភាសាខ្មែរ (Khmer Explanation)</span>
               </div>
-              <p className="text-sm text-stone-800 leading-relaxed font-sans">
+              <p className="text-sm text-stone-800 leading-relaxed font-khmer font-medium">
                 {activePoint.khmerExplanation}
               </p>
             </div>
@@ -333,16 +333,16 @@ export const GrammarExplanationFeature: React.FC<GrammarExplanationFeatureProps>
 
           {/* B. Formation Rules (រូបមន្ត និងទម្រង់ផ្សំ) */}
           <div className="space-y-3">
-            <h3 className="text-xs font-bold text-stone-500 uppercase tracking-wider flex items-center gap-1.5">
+            <h3 className="text-xs font-bold text-stone-500 uppercase tracking-wider flex items-center gap-1.5 font-khmer">
               <Table className="w-4 h-4 text-stone-600" />
               <span>Sentence Formation Rules (រូបមន្ត និងទម្រង់ផ្សំ)</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="p-4 rounded-xl bg-amber-50/40 border border-amber-200/70 space-y-1.5">
-                <span className="text-[11px] font-bold text-amber-800 block">
+                <span className="text-[11px] font-bold text-amber-800 block font-khmer">
                   ភាសាខ្មែរ (Khmer Structure)
                 </span>
-                <ul className="text-xs space-y-1 text-stone-800">
+                <ul className="text-xs space-y-1 text-stone-800 font-khmer leading-relaxed">
                   {activePoint.formationRulesKm.map((rule, idx) => (
                     <li key={idx} className="flex items-start gap-1.5">
                       <span className="text-amber-600 font-bold">•</span>
@@ -377,10 +377,10 @@ export const GrammarExplanationFeature: React.FC<GrammarExplanationFeatureProps>
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
                     <tr className="bg-stone-100 text-stone-700 border-b border-stone-200">
-                      <th className="p-3 font-bold">Form / ទម្រង់</th>
+                      <th className="p-3 font-bold font-khmer">Form / ទម្រង់</th>
                       <th className="p-3 font-bold">Japanese</th>
                       <th className="p-3 font-bold">Romaji</th>
-                      <th className="p-3 font-bold">Khmer (ភាសាខ្មែរ)</th>
+                      <th className="p-3 font-bold font-khmer">Khmer (ភាសាខ្មែរ)</th>
                       <th className="p-3 font-bold">Audio</th>
                     </tr>
                   </thead>
@@ -389,11 +389,11 @@ export const GrammarExplanationFeature: React.FC<GrammarExplanationFeatureProps>
                       <tr key={idx} className="hover:bg-amber-50/30">
                         <td className="p-3 font-semibold text-stone-900">
                           <div>{row.formName}</div>
-                          <div className="text-[11px] text-amber-800">{row.khmerFormName}</div>
+                          <div className="text-[11px] text-amber-800 font-khmer">{row.khmerFormName}</div>
                         </td>
                         <td className="p-3 font-jp font-bold text-stone-900">{row.japanese}</td>
                         <td className="p-3 font-mono text-stone-600">{row.romaji}</td>
-                        <td className="p-3 text-stone-800">{row.khmer}</td>
+                        <td className="p-3 text-stone-800 font-khmer">{row.khmer}</td>
                         <td className="p-3">
                           <button
                             onClick={() => playJapaneseSpeech(row.japanese, speechRate)}
@@ -466,7 +466,7 @@ export const GrammarExplanationFeature: React.FC<GrammarExplanationFeatureProps>
                     <p className="text-xs font-mono text-stone-500">{ex.romaji}</p>
                   )}
                   <p className="text-xs text-stone-600 italic">{ex.english}</p>
-                  <p className="text-xs font-semibold text-amber-950 pt-0.5 border-t border-stone-200/60 mt-1">
+                  <p className="text-xs font-semibold text-amber-950 pt-0.5 border-t border-stone-200/60 mt-1 font-khmer leading-relaxed">
                     🇰🇭 {ex.khmer}
                   </p>
                 </div>

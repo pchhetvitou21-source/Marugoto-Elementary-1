@@ -116,22 +116,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                   初級1 A2 りかい (Pages 21–167)
                 </p>
               </div>
-
-              {/* Book Highlights */}
-              <div className="space-y-2 pt-2 border-t border-stone-100 text-xs text-stone-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>18 Lessons (第1課〜第18課)</strong> across 9 Topics</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Grammar Explained in Khmer & English</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Official answer keys with toggle buttons</span>
-                </div>
-              </div>
             </div>
 
             {/* Action footer button */}
@@ -165,7 +149,7 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
 
               <div>
                 <span className="text-[11px] font-bold text-blue-800 tracking-wider uppercase">
-                  Communicative Activities · 言語活動編
+                  Communication Activities · 言語活動編
                 </span>
                 <h2 className="text-2xl font-serif font-bold text-stone-900 mt-1 font-jp group-hover:text-blue-900 transition-colors">
                   かつどう Katsudou Book
@@ -173,22 +157,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 <p className="text-xs text-stone-500 font-mono mt-0.5">
                   初級1 A2 かつどう (Pages 21–177)
                 </p>
-              </div>
-
-              {/* Book Highlights */}
-              <div className="space-y-2 pt-2 border-t border-stone-100 text-xs text-stone-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>18 Lessons (第1課〜第18課)</strong> across 9 Topics</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Official Can-dos (1–53)</strong> with audio speech</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Answer keys (pp. 160–177) with explanations</span>
-                </div>
               </div>
             </div>
 
@@ -239,7 +207,7 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between text-[11px] font-bold text-stone-700">
-                  <span>Lesson Selection (ជ្រើសរើសមេរៀន):</span>
+                  <span>Lesson Selection (課の選択):</span>
                   <button
                     onClick={() => {
                       playChime('click');
@@ -266,28 +234,12 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                   ))}
                 </div>
               </div>
-
-              {/* Vocabulary Highlights */}
-              <div className="space-y-1.5 pt-2 text-xs text-stone-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>655+ words across Lessons 1 to 18</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span className="font-khmer">Khmer font: <strong>Khmer OS Siemreap</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Native audio speech & flashcards</span>
-                </div>
-              </div>
             </div>
 
             {/* Action footer button */}
             <div className="mt-5 pt-4 border-t border-emerald-100 flex items-center justify-between">
-              <span className="text-xs font-bold text-emerald-950 font-khmer">
-                Open Vocabulary List (បើកតារាងពាក្យ)
+              <span className="text-xs font-bold text-emerald-950">
+                Open Vocabulary List (語いリスト)
               </span>
               <div className="w-8 h-8 rounded-xl bg-emerald-600 group-hover:bg-emerald-700 text-white flex items-center justify-center transition-colors shadow-2xs">
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -356,22 +308,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                       L{num}
                     </button>
                   ))}
-                </div>
-              </div>
-
-              {/* Highlights */}
-              <div className="space-y-1.5 pt-2 text-xs text-stone-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
-                  <span>Official answer keys for Lessons 1 to 18</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
-                  <span>Full audio scripts with dialogue speakers</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0" />
-                  <span>Interactive Romaji & English modes</span>
                 </div>
               </div>
             </div>
@@ -448,22 +384,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
                       L{num}
                     </button>
                   ))}
-                </div>
-              </div>
-
-              {/* Highlights */}
-              <div className="space-y-1.5 pt-2 text-xs text-stone-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                  <span>Activity 1 to 4 solutions & tables</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                  <span>Full audio conversation listening scripts</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                  <span>Interactive Romaji & English modes</span>
                 </div>
               </div>
             </div>
@@ -550,9 +470,6 @@ export const HomeBookSelection: React.FC<HomeBookSelectionProps> = ({
             <h1 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
               {bookTitle} · Chapters and Lessons
             </h1>
-            <p className="text-xs sm:text-sm text-stone-300 max-w-2xl leading-relaxed">
-              {bookSubtitle}. Select any lesson below. Each lesson is divided into 4 core features: <strong>Grammar (Explain the detail)</strong>, <strong>Vocabulary</strong>, <strong>Can-do</strong>, and <strong>Exercises with Answer Key</strong>.
-            </p>
           </div>
         </div>
 
